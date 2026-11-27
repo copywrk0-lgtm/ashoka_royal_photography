@@ -1,21 +1,14 @@
-# Ashoka Royal Photography
+# Ashoka Royal Photography — Immersive Portfolio
 
-Immersive wedding photography and cinematography portfolio inspired by the supplied Art of Noticing reference.
+Built around the supplied Art of Noticing reference and the supplied Ashoka Royal photography/video assets.
 
-## Project
-- Next.js App Router
-- React 19
-- TypeScript
-- Lucide React
-- Editorial / immersive gallery layout
-- Selected wedding stories
-- Cinematic film reel
-- Responsive mobile layout
+## Structure
+- App Router pages and story routes
+- Dedicated navigation, hero, floating gallery, story list/modal, film reel, about, closing image and footer components
+- Separate media/data/types/hooks/lib layers
+- 47 supplied photos + 5 supplied videos
+- Responsive editorial styling
 
-## Local setup
-```bash
+## Run
 npm install
 npm run dev
-```
-
-The complete local project archive contains the supplied photography and video assets.
