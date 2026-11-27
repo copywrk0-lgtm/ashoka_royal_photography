@@ -65,8 +65,8 @@ export function Film({src,label}:{src:string;label:string}){
         muted
         loop
         playsInline
-        preload="metadata"
-        onCanPlay={() => setLoading(false)}
+        autoPlay\n        preload="auto"
+        onLoadedData={() => setLoading(false)}\n        onCanPlay={() => setLoading(false)}
         onError={() => {
           setLoading(false)
           setFailed(true)
