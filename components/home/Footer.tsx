@@ -4,7 +4,7 @@ import {FormEvent, useState} from 'react';
 import {site} from '@/data/site';
 
 export function Footer(){
-  const [briefOpen, setBriefOpen] = useState(false);
+  const [briefOpen, setBriefOpen] = useState(false);\n  const [briefClosing, setBriefClosing] = useState(false);\n\n  function closeBrief(){\n    setBriefClosing(true);\n    window.setTimeout(() => {\n      setBriefOpen(false);\n      setBriefClosing(false);\n    }, 620);\n  }
 
   function submitBrief(e: FormEvent<HTMLFormElement>){
     e.preventDefault();
@@ -61,9 +61,12 @@ export function Footer(){
       </footer>
 
       {briefOpen && (
-        <div className="brief-backdrop" role="presentation" onMouseDown={(e) => e.target === e.currentTarget && setBriefOpen(false)}>
-          <section className="brief-modal" role="dialog" aria-modal="true" aria-labelledby="brief-title">
-            <button className="brief-close" type="button" onClick={() => setBriefOpen(false)} aria-label="Close form">CLOSE ×</button>
+        <div className="brief-backdrop" role="presentation" onMouseDown={(e) => e.target === e.currentTarget && closeBrief()}>
+          <section className={`brief-modal${briefClosing ? ' is-closing' : ''}`} role="dialog" aria-modal="true" aria-labelledby="brief-title">
+            <button className="brief-close" type="button" onClick={closeBrief} aria-label="Close form">CLOSE ×</button>
+            <div className="brief-bricks" aria-hidden="true">
+              {Array.from({length: 16}, (_, i) => <span key={i} style={{'--i': i} as React.CSSProperties} />)}
+            </div>
 
             <div className="brief-heading">
               <p className="eyebrow">QUICK BRIEF · 01</p>
