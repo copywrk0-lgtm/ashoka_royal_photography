@@ -4,7 +4,16 @@ import {FormEvent, useState} from 'react';
 import {site} from '@/data/site';
 
 export function Footer(){
-  const [briefOpen, setBriefOpen] = useState(false);\n  const [briefClosing, setBriefClosing] = useState(false);\n\n  function closeBrief(){\n    setBriefClosing(true);\n    window.setTimeout(() => {\n      setBriefOpen(false);\n      setBriefClosing(false);\n    }, 620);\n  }
+  const [briefOpen, setBriefOpen] = useState(false);
+  const [briefClosing, setBriefClosing] = useState(false);
+
+  function closeBrief() {
+    setBriefClosing(true);
+    window.setTimeout(() => {
+      setBriefOpen(false);
+      setBriefClosing(false);
+    }, 620);
+  }
 
   function submitBrief(e: FormEvent<HTMLFormElement>){
     e.preventDefault();
@@ -65,7 +74,7 @@ export function Footer(){
           <section className={`brief-modal${briefClosing ? ' is-closing' : ''}`} role="dialog" aria-modal="true" aria-labelledby="brief-title">
             <button className="brief-close" type="button" onClick={closeBrief} aria-label="Close form">CLOSE ×</button>
             <div className="brief-bricks" aria-hidden="true">
-              {Array.from({length: 16}, (_, i) => <span key={i} style={{'--i': i} as React.CSSProperties} />)}
+              {Array.from({ length: 16 }, (_, i) => <span key={i} />)}
             </div>
 
             <div className="brief-heading">
