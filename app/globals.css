@@ -21,16 +21,17 @@
 .brief-bricks{position:absolute;inset:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);pointer-events:none;overflow:hidden;opacity:0}
 .brief-bricks span{background:#f2f0ea;border:1px solid rgba(9,9,9,.06);transform-origin:center;opacity:1}
 .brief-modal.is-closing .brief-bricks{opacity:1}
-.brief-modal.is-closing .brief-bricks span{animation:brief-brick-fall .62s cubic-bezier(.55,.05,.8,.35) forwards;animation-delay:calc(var(--i) * -18ms)}
-.brief-modal.is-closing .brief-heading,
-.brief-modal.is-closing .brief-form,
-.brief-modal.is-closing .brief-close{animation:brief-content-dim .18s ease forwards}
+.brief-modal.is-closing .brief-bricks span{animation:brief-brick-fall .62s cubic-bezier(.55,.05,.8,.35) forwards}
+.brief-bricks span:nth-child(1){animation-delay:0ms}.brief-bricks span:nth-child(2){animation-delay:18ms}.brief-bricks span:nth-child(3){animation-delay:36ms}.brief-bricks span:nth-child(4){animation-delay:54ms}
+.brief-bricks span:nth-child(5){animation-delay:36ms}.brief-bricks span:nth-child(6){animation-delay:54ms}.brief-bricks span:nth-child(7){animation-delay:72ms}.brief-bricks span:nth-child(8){animation-delay:90ms}
+.brief-bricks span:nth-child(9){animation-delay:54ms}.brief-bricks span:nth-child(10){animation-delay:72ms}.brief-bricks span:nth-child(11){animation-delay:90ms}.brief-bricks span:nth-child(12){animation-delay:108ms}
+.brief-bricks span:nth-child(13){animation-delay:72ms}.brief-bricks span:nth-child(14){animation-delay:90ms}.brief-bricks span:nth-child(15){animation-delay:108ms}.brief-bricks span:nth-child(16){animation-delay:126ms}
+.brief-modal.is-closing .brief-heading,.brief-modal.is-closing .brief-form,.brief-modal.is-closing .brief-close{animation:brief-content-dim .18s ease forwards}
 @keyframes brief-brick-fall{
   0%{transform:translate3d(0,0,0) rotate(0deg) scale(1);opacity:1}
-  38%{transform:translate3d(calc((var(--i) - 7.5) * 3px),-10px,0) rotate(calc((var(--i) - 7.5) * 1.5deg));opacity:1}
-  100%{transform:translate3d(calc((var(--i) - 7.5) * 12px),calc(100vh + (var(--i) % 4) * 35px),0) rotate(calc((var(--i) - 7.5) * 7deg)) scale(.82);opacity:0}
+  38%{transform:translate3d(0,-10px,0) rotate(1deg) scale(1);opacity:1}
+  100%{transform:translate3d(var(--brick-x,0px),110vh,0) rotate(18deg) scale(.82);opacity:0}
 }
+.brief-bricks span:nth-child(4n+1){--brick-x:-80px}.brief-bricks span:nth-child(4n+2){--brick-x:-25px}.brief-bricks span:nth-child(4n+3){--brick-x:35px}.brief-bricks span:nth-child(4n){--brick-x:90px}
 @keyframes brief-content-dim{to{opacity:0}}
-@media(prefers-reduced-motion:reduce){
-  .brief-modal.is-closing .brief-bricks span{animation-duration:.2s}
-}
+@media(prefers-reduced-motion:reduce){.brief-modal.is-closing .brief-bricks span{animation-duration:.2s}}
