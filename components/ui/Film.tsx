@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react"
 
 let activeVideo: HTMLVideoElement | null = null
 
-export function Film({src,label}:{src:string;label:string}){
+export function Film({ src, label }: { src: string; label: string }) {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [loading,setLoading] = useState(true)
-  const [failed,setFailed] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
@@ -65,8 +65,10 @@ export function Film({src,label}:{src:string;label:string}){
         muted
         loop
         playsInline
-        autoPlay\n        preload="auto"
-        onLoadedData={() => setLoading(false)}\n        onCanPlay={() => setLoading(false)}
+        autoPlay
+        preload="auto"
+        onLoadedData={() => setLoading(false)}
+        onCanPlay={() => setLoading(false)}
         onError={() => {
           setLoading(false)
           setFailed(true)
