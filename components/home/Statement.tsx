@@ -1,0 +1,1 @@
+export function Statement(){return <section className="statement"><p className="eyebrow">02 — THE APPROACH</p><h2>Not just how it looked.<br/><em>How it felt.</em></h2><p className="statement-copy">From the quiet before the ceremony to the chaos on the dance floor, we document the small gestures, the big emotions and everything in between.</p></section>}

@@ -1,0 +1,1 @@
+import type {Story} from '@/types/site'; import {images} from '@/data/media'; export function StoryGallery({story}:{story:Story}){return <div className="story-gallery">{story.set.map((i,n)=><div className={`story-shot shot-${n}`} key={i}><img src={images[i]} alt={`${story.title} photograph ${n+1}`}/></div>)}</div>}

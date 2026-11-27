@@ -1,0 +1,1 @@
+import type {Metadata} from 'next'; import './globals.css'; export const metadata:Metadata={title:'Ashoka Royal — Photography & Cinematography',description:'Wedding photography and cinematography by Ashoka Royal Photography — Manoj Rana.'}; export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}

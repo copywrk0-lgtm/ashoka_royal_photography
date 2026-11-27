@@ -1,0 +1,1 @@
+import {images} from '@/data/media'; export function ClosingImage(){return <section className="closing-image"><img src={images[46]} alt="Wedding portrait"/><div className="closing-overlay"><span>THE LAST FRAME</span><span>STILL YOURS.</span></div></section>}

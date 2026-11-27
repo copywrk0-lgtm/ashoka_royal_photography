@@ -1,0 +1,1 @@
+export default function ContactPage(){return <main className="standalone"><a href="/">← Ashoka Royal</a><h1>Let's talk.</h1><p><a href="tel:+919878919630">+91 98789 19630</a></p><p><a href="https://instagram.com/ashoka_royal_/" target="_blank" rel="noreferrer">@ashoka_royal_ ↗</a></p></main>}
