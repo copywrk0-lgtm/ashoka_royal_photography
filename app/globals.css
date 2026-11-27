@@ -17,3 +17,20 @@
 .brief-form{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;border-top:1px solid #c9c6bd}.brief-form label{display:flex;flex-direction:column;gap:9px;padding:20px 0;border-bottom:1px solid #c9c6bd}.brief-form label span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;color:#77736c}.brief-form input,.brief-form textarea{border:0;border-bottom:1px solid #aaa79f;background:transparent;border-radius:0;outline:none;padding:8px 0;font-family:Manrope,Arial,sans-serif;font-size:14px;color:#090909;resize:vertical}.brief-form input:focus,.brief-form textarea:focus{border-bottom-color:#090909}.brief-full{grid-column:1/-1}.brief-submit-row{grid-column:1/-1;display:flex;align-items:center;gap:24px;padding-top:28px}.brief-submit{border:0;background:#090909;color:#f2f0ea;padding:17px 24px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;cursor:pointer}.brief-submit span{margin-left:16px}.brief-submit-row p{font-size:10px;color:#77736c}
 .footer-action{border:0;background:none;color:inherit;text-align:left;font-family:inherit;cursor:pointer}
 @media(max-width:900px){.brief-backdrop{padding:0}.brief-modal{max-height:100vh;min-height:100vh;padding:76px 7vw 40px}.brief-form{display:block}.brief-full{grid-column:auto}.brief-submit-row{display:block}.brief-submit-row p{margin-top:16px}.brief-heading h3{font-size:18vw}}
+
+.brief-bricks{position:absolute;inset:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);pointer-events:none;overflow:hidden;opacity:0}
+.brief-bricks span{background:#f2f0ea;border:1px solid rgba(9,9,9,.06);transform-origin:center;opacity:1}
+.brief-modal.is-closing .brief-bricks{opacity:1}
+.brief-modal.is-closing .brief-bricks span{animation:brief-brick-fall .62s cubic-bezier(.55,.05,.8,.35) forwards;animation-delay:calc(var(--i) * -18ms)}
+.brief-modal.is-closing .brief-heading,
+.brief-modal.is-closing .brief-form,
+.brief-modal.is-closing .brief-close{animation:brief-content-dim .18s ease forwards}
+@keyframes brief-brick-fall{
+  0%{transform:translate3d(0,0,0) rotate(0deg) scale(1);opacity:1}
+  38%{transform:translate3d(calc((var(--i) - 7.5) * 3px),-10px,0) rotate(calc((var(--i) - 7.5) * 1.5deg));opacity:1}
+  100%{transform:translate3d(calc((var(--i) - 7.5) * 12px),calc(100vh + (var(--i) % 4) * 35px),0) rotate(calc((var(--i) - 7.5) * 7deg)) scale(.82);opacity:0}
+}
+@keyframes brief-content-dim{to{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  .brief-modal.is-closing .brief-bricks span{animation-duration:.2s}
+}
