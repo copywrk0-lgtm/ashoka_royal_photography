@@ -7,6 +7,7 @@ let activeVideo: HTMLVideoElement | null = null
 export function Film({src,label}:{src:string;label:string}){
   const videoRef = useRef<HTMLVideoElement>(null)
   const [loading,setLoading] = useState(true)
+  const [failed,setFailed] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
@@ -41,9 +42,15 @@ export function Film({src,label}:{src:string;label:string}){
 
   return (
     <article className="film-card">
-      {loading && (
+      {loading && !failed && (
         <div className="film-loading" aria-label="Loading video">
           <span className="film-loader" />
+        </div>
+      )}
+
+      {failed && (
+        <div className="film-loading film-error" role="status">
+          <span>VIDEO UNAVAILABLE</span>
         </div>
       )}
 
@@ -54,9 +61,12 @@ export function Film({src,label}:{src:string;label:string}){
         loop
         playsInline
         preload="metadata"
-        onLoadedData={() => setLoading(false)}
+        onLoadedMetadata={() => setLoading(false)}
         onCanPlay={() => setLoading(false)}
-        onError={() => setLoading(false)}
+        onError={() => {
+          setLoading(false)
+          setFailed(true)
+        }}
       />
 
       <div className="film-label">
