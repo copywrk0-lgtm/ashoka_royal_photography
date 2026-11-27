@@ -1,1 +1,14 @@
-import {films} from '@/data/media'; import {SectionHead} from '@/components/ui/SectionHead'; import {Film} from '@/components/ui/Film'; export function Films(){return <section id="films" className="films"><SectionHead index="04" title="MOTION" count="THE FILMS"/><div className="film-grid">{films.slice(0,3).map((src,i)=><Film key={src} src={src} label={`FILM 0${i+1}`}/>)}</div></section>}
+import {films} from '@/data/media';
+import {SectionHead} from '@/components/ui/SectionHead';
+import {Film} from '@/components/ui/Film';
+
+export function Films(){
+  return (
+    <section id="films" className="films">
+      <SectionHead index="04" title="MOTION" count="THE FILMS"/>
+      <div className="film-grid">
+        {films.slice(0,3).map((src,i)=><Film key={src} src={src} label={`FILM 0${i+1}`}/>)}
+      </div>
+    </section>
+  )
+}
