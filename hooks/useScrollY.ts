@@ -1,0 +1,1 @@
+'use client'; import {useEffect,useState} from 'react'; export function useScrollY(){const [y,setY]=useState(0);useEffect(()=>{const f=()=>setY(scrollY);addEventListener('scroll',f,{passive:true});return()=>removeEventListener('scroll',f)},[]);return y}

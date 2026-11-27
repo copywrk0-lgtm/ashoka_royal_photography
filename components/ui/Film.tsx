@@ -1,0 +1,1 @@
+export function Film({src,label}:{src:string;label:string}){return <div className="film-card"><video src={src} autoPlay muted loop playsInline preload="metadata"/><div className="film-label"><span>{label}</span><span>PLAYING</span></div></div>}

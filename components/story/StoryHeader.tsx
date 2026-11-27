@@ -1,0 +1,1 @@
+import type {Story} from '@/types/site'; export function StoryHeader({story}:{story:Story}){return <div className="story-intro"><p className="eyebrow">SELECTED STORY · {story.index}</p><h2>{story.title}</h2><p>{story.place}</p></div>}

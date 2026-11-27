@@ -1,0 +1,1 @@
+export function SectionHead({index,title,count}:{index:string;title:string;count?:string}){return <div className="section-head"><p className="eyebrow">{index} — {title}</p>{count&&<span>{count}</span>}</div>}

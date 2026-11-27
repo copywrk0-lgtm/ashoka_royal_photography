@@ -1,0 +1,1 @@
+'use client'; import {useEffect} from 'react'; export function useEscape(onClose:()=>void){useEffect(()=>{const f=(e:KeyboardEvent)=>e.key==='Escape'&&onClose();addEventListener('keydown',f);return()=>removeEventListener('keydown',f)},[onClose])}
