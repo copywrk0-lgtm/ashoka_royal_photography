@@ -16,9 +16,7 @@ export function Film({src,label}:{src:string;label:string}){
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && entry.intersectionRatio >= 0.55) {
-          if (activeVideo && activeVideo !== video) {
-            activeVideo.pause()
-          }
+          if (activeVideo && activeVideo !== video) activeVideo.pause()
           activeVideo = video
           video.play().catch(() => {})
         } else if (activeVideo === video) {
@@ -43,8 +41,15 @@ export function Film({src,label}:{src:string;label:string}){
   return (
     <article className="film-card">
       {loading && !failed && (
-        <div className="film-loading" aria-label="Loading video">
-          <span className="film-loader" />
+        <div className="film-loading" aria-label={`Loading ${label}`}>
+          <div className="film-loading-inner">
+            <span className="film-loader" />
+            <span className="film-loading-label">{label}</span>
+            <span className="film-loading-track">
+              <span className="film-loading-progress" />
+            </span>
+            <span className="film-loading-text">LOADING FILM</span>
+          </div>
         </div>
       )}
 
@@ -61,7 +66,6 @@ export function Film({src,label}:{src:string;label:string}){
         loop
         playsInline
         preload="metadata"
-        onLoadedMetadata={() => setLoading(false)}
         onCanPlay={() => setLoading(false)}
         onError={() => {
           setLoading(false)
